@@ -1,0 +1,13 @@
+{
+	"data_scientist":			"shahid_azad",
+	"scope":		"order_regions_fcstgrp",
+	"response":				"order_volume_std",
+	"timegrain":			"months",
+	"dimensions":			"Region_Name-forecast_group",
+	"type": 					"commissioning",
+	"train_horizon": 	6,
+	"current_year": 	2022,
+	"current_month": 	12,
+	"forecast_horizon": 4
+}
+
