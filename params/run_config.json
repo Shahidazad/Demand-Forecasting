@@ -5,9 +5,9 @@
 	"timegrain":			"months",
 	"dimensions":			"Region_Name-forecast_group",
 	"type": 					"commissioning",
-	"train_horizon": 	6,
-	"current_year": 	2022,
-	"current_month": 	12,
-	"forecast_horizon": 4
+	"train_horizon": 	7,
+	"current_year": 	2023,
+	"current_month": 	2,
+	"forecast_horizon": 6
 }
 

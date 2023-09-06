@@ -107,7 +107,7 @@ def main():
     #data = pd.read_csv('data/huitzilo_orders_data.csv')
     #%%%% First write most recent data to db
     t_loaddata_start = time.time()
-    data = pd.read_parquet('data/tezcatli_orders_data.parquet')
+    data = pd.read_parquet('tezcatli_orders_data.parquet')
   
     print('------1.1')
     if not test_run:
@@ -190,7 +190,10 @@ def main():
     print('------1.2')
     ###Use Fiscal year
     data['Fiscal_Year'] = data['Fiscal_YY'].replace('FY', '20', regex=True)
-    data['order_date_fiscal'] = pd.to_datetime(data.Fiscal_Year + '/' + data.Fiscal_Period.astype(int).astype(str) + '/01')
+    data['order_date_fiscal'] = pd.to_datetime(data["Order_Create_Date"].dt.year.astype(str) + '/' 
+                                               + data["Order_Create_Date"].dt.month.astype(str) + 
+                                               '/01')
+    # data['order_date_fiscal'] = pd.to_datetime(data.Fiscal_Year + '/' + data.Fiscal_Period.astype(int).astype(str) + '/01')
     data = data.groupby(['order_date_fiscal','group_key'])['Order_Volume_(STD)'].sum().reset_index()
     data.rename(columns = {'order_date_fiscal':'Order_Create_Date'}, inplace = True)
 
